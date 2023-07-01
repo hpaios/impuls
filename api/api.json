@@ -1,0 +1,160 @@
+{
+    "data": [
+        {
+            "question": "What is the color of the White House?",
+            "answers": {
+                "a": "Pink",
+                "b": "Blue",
+                "c": "White",
+                "d": "Rainbow"
+            },
+            "answer": "c",
+            "id": "level_1",
+            "nextLevelId": "level_2",
+            "prize": "500"
+        },
+        {
+            "question": "How many legs does a spider typically have?",
+            "answers": {
+                "a": "100",
+                "b": "2",
+                "c": "8",
+                "d": "4"
+            },
+            "answer": "c",
+            "id": "level_2",
+            "nextLevelId": "level_3",
+            "prize": "1000"
+        },
+        {
+            "question": "What do you call a group of crows?",
+            "answers": {
+                "a": "A flock",
+                "b": "A murder",
+                "c": "A gaggle",
+                "d": "A herd"
+            },
+            "answer": "b",
+            "id": "level_3",
+            "nextLevelId": "finish",
+            "prize": "2000"
+        },
+        {
+            "question": "What is the capital of Australia?",
+            "answers": {
+                "a": "Sydney",
+                "b": "Melbourne",
+                "c": "Brisbane",
+                "d": "Canberra"
+            },
+            "answer": "d",
+            "id": "level_4",
+            "nextLevelId": "level_5",
+            "prize": "4000"
+        },
+        {
+            "question": "What is the world's largest ocean?",
+            "answers": {
+                "a": "Atlantic",
+                "b": "Indian",
+                "c": "Pacific",
+                "d": "Arctic"
+            },
+            "answer": "c",
+            "id": "level_5",
+            "nextLevelId": "level_6",
+            "prize": "8000"
+        },
+        {
+            "question": "Who wrote the 'Game of Thrones' series of books?",
+            "answers": {
+                "a": "J.K. Rowling",
+                "b": "George R. R. Martin",
+                "c": "Stephen King",
+                "d": "Suzanne Collins"
+            },
+            "answer": "b",
+            "id": "level_6",
+            "nextLevelId": "level_7",
+            "prize": "16000"
+        },
+        {
+            "question": "What is the square root of 144?",
+            "answers": {
+                "a": "12",
+                "b": "14",
+                "c": "16",
+                "d": "18"
+            },
+            "answer": "a",
+            "id": "level_7",
+            "nextLevelId": "level_8",
+            "prize": "32000"
+        },
+        {
+            "question": "Which planet is known as the 'Red Planet'?",
+            "answers": {
+                "a": "Venus",
+                "b": "Mars",
+                "c": "Jupiter",
+                "d": "Saturn"
+            },
+            "answer": "b",
+            "id": "level_8",
+            "nextLevelId": "level_9",
+            "prize": "64000"
+        },
+        {
+            "question": "What is the chemical symbol for gold?",
+            "answers": {
+                "a": "Gd",
+                "b": "Go",
+                "c": "Au",
+                "d": "Ag"
+            },
+            "answer": "c",
+            "id": "level_9",
+            "nextLevelId": "level_10",
+            "prize": "125000"
+        },
+        {
+            "question": "Who painted the Mona Lisa?",
+            "answers": {
+                "a": "Vincent Van Gogh",
+                "b": "Pablo Picasso",
+                "c": "Leonardo da Vinci",
+                "d": "Michelangelo"
+            },
+            "answer": "c",
+            "id": "level_10",
+            "nextLevelId": "level_11",
+            "prize": "250000"
+        },
+        {
+            "question": "What is the name of the longest river in the world?",
+            "answers": {
+                "a": "Amazon",
+                "b": "Nile",
+                "c": "Yangtze",
+                "d": "Mississippi"
+            },
+            "answer": "b",
+            "id": "level_11",
+            "nextLevelId": "level_12",
+            "prize": "500000"
+        },
+        {
+            "question": "Who was the first person to walk on the moon?",
+            "answers": {
+                "a": "Buzz Aldrin",
+                "b": "Neil Armstrong",
+                "c": "Yuri Gagarin",
+                "d": "Michael Collins"
+            },
+            "answer": "b",
+            "id": "level_12",
+            "nextLevelId": "finish",
+            "prize": "1000000"
+        }
+    ]
+}
