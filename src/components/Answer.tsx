@@ -1,52 +1,56 @@
 import React, { useEffect, useState } from "react";
 
 import { useDispatch } from 'react-redux';
-import { nextQuestion, changeStatus } from './gameSlice';
+import { nextQuestion, changeStatus } from '../reducers/gameSlice';
 
-export const Answer = (props) => {
- 
+
+export const Answer = (props: any) => {
+
     const [color, setColor] = useState('');
 
     const dispatch = useDispatch();
 
+    const { item, answer, correct, nextLevelId } = props;
+
     useEffect(() => {
-        if (color === 'green') {
-            setTimeout(() => {
-                dispatch(nextQuestion(props.next))
-                dispatch(changeStatus(props.next))
-                setColor('')
-            }, 1000)
-        } else if (color === 'red') {
-            setTimeout(() => {
-                dispatch(nextQuestion('level_1'))
-                dispatch(changeStatus('start'))
-                setColor('')
-            }, 1000)
-        }
-    }, [color])
+      if (color === 'green') {
+          setTimeout(() => {
+              dispatch(nextQuestion(nextLevelId))
+              dispatch(changeStatus(nextLevelId))
+              setColor('')
+          }, 1000)
+      } else if (color === 'red') {
+          setTimeout(() => {
+              dispatch(nextQuestion('level_1'))
+              dispatch(changeStatus('start'))
+              setColor('')
+          }, 1000)
+      }
+  }, [color])
 
-    const getResult = (value) => {
-        if(props.correct === value) {
-            setColor('green')
-        } else {
-            setColor('red')
-        }
-    }
+    const getResult = (item: string) => {
+      if(correct === item) {
+          setColor('green')
+      } else {
+          setColor('red')
+      }
+  }
 
-    const changeColor = (value) => {
-        setColor('orange')
-        
-        setTimeout(() => getResult(value), 1000);
-    }
-
+  const changeColor = (item: string) => {
+      setColor('orange')
+      
+      setTimeout(() => getResult(item), 1000);
+  }
+    
     return(
         <div>
-            <span>{props.value}</span>
+            <span>{item}</span>
+            <br />
             <button
                 style={{backgroundColor: `${color}`}}
-                onClick={() => changeColor(props.value)}
+                onClick={() => changeColor(item)}
             >
-                {props.ans}
+                {answer}
             </button>
         </div>
     )

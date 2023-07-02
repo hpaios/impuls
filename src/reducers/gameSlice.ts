@@ -1,4 +1,3 @@
-import { RootState } from './../store/store';
 import { createSlice } from '@reduxjs/toolkit'
 import data from '../api/api.json'
 import { InitialState } from '../ts/interfaces'
@@ -28,10 +27,36 @@ const gameSlice = createSlice({
             prepare(payload?: string) {
               return { payload }
             }
-        }
+        },
+        nextQuestion: {
+          reducer(state: any, action: any) {
+            
+              const newActive = state.data.data.find((item: { id: any; }): any => item.id == action.payload)
+            
+              if(newActive) {
+                  const newState =  {...state, activeQuestion: newActive }
+                  return newState
+              } else {
+                  const newState = {...state, status: 'finish'}
+                  return newState
+              }
+            },
+            prepare(payload: any) {
+              return { payload }
+            }
+        },
+        changeStatus: {
+          reducer(state: any, action: any) {
+              const status = action.payload === 'finish' ? 'finish' : 'inProgress'
+              return {...state, status}
+          },
+          prepare(payload: any) {
+            return { payload }
+          }
+      }
     }
 })
 
-export const { startGame } = gameSlice.actions;
+export const { startGame, nextQuestion, changeStatus } = gameSlice.actions;
 
 export default gameSlice.reducer

@@ -11,7 +11,6 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 const App = () => {
 
   const status = useAppSelector(state => state.game.status);
-  const activeQuestion = useAppSelector(state => state.game.activeQuestion);
 
   const getComponentToShow = () => {
     switch(status) {
@@ -19,7 +18,7 @@ const App = () => {
           return <StartPage />
       }
       case 'inProgress': {
-          return <QuestionList activeQuestion={activeQuestion}/>
+          return <QuestionList/>
       }
     }
   }
