@@ -34,7 +34,7 @@ const gameSlice = createSlice({
               const newActive = state.data.data.find((item: { id: any; }): any => item.id == action.payload)
             
               if(newActive) {
-                  const newState =  {...state, activeQuestion: newActive }
+                  const newState =  {...state, activeQuestion: newActive, prize: newActive.prize }
                   return newState
               } else {
                   const newState = {...state, status: 'finish'}
@@ -52,11 +52,19 @@ const gameSlice = createSlice({
           },
           prepare(payload: any) {
             return { payload }
-          }
+          },
+        },
+        changePrize: {
+          reducer(state: any, action: any) {
+            return {...state, prize: action.payload}
+          },
+          prepare(payload: any) {
+            return { payload }
+          },
+        }
       }
-    }
 })
 
-export const { startGame, nextQuestion, changeStatus } = gameSlice.actions;
+export const { startGame, nextQuestion, changeStatus, changePrize } = gameSlice.actions;
 
 export default gameSlice.reducer

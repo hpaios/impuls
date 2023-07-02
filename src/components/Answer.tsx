@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useDispatch } from 'react-redux';
-import { nextQuestion, changeStatus } from '../reducers/gameSlice';
+import { nextQuestion, changeStatus, changePrize } from '../reducers/gameSlice';
 
 
 export const Answer = (props: any) => {
@@ -10,19 +10,19 @@ export const Answer = (props: any) => {
 
     const dispatch = useDispatch();
 
-    const { item, answer, correct, nextLevelId } = props;
+    const { item, answer, correct, nextLevelId, prize } = props;
 
     useEffect(() => {
       if (color === 'green') {
           setTimeout(() => {
               dispatch(nextQuestion(nextLevelId))
               dispatch(changeStatus(nextLevelId))
+              dispatch(changePrize(prize))
               setColor('')
           }, 1000)
       } else if (color === 'red') {
           setTimeout(() => {
-              dispatch(nextQuestion('level_1'))
-              dispatch(changeStatus('start'))
+              dispatch(changeStatus('finish'))
               setColor('')
           }, 1000)
       }
