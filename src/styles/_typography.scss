@@ -1,0 +1,13 @@
+h1 {
+    font-size: 32px;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    color: $font;
+    text-align: center;
+}
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 56px;
+        text-align: left;
+    }
+}

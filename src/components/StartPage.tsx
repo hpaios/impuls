@@ -11,9 +11,15 @@ export const StartPage = () => {
   }
 
     return(
-        <>
-            <h1>Who wants to be a millionaire?</h1>
-            <button onClick={onStartGame}>Start</button>
-        </>
+      <div className='content'>
+        <div className='container'>
+            <div className='split-screen bg'></div>
+            <div className='split-screen'>
+              <h1>Who wants to be a millionaire?</h1>
+              <button onClick={onStartGame}>Start</button>
+            </div>   
+        </div>
+      </div>
+        
     )
 }

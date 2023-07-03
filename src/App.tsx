@@ -29,6 +29,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className='responsive-box'></div>
       {getComponentToShow()}
     </div>
   );
