@@ -2,52 +2,70 @@ import React, { useEffect, useState } from "react";
 
 import { useDispatch } from 'react-redux';
 import { nextQuestion, changeStatus, changePrize } from '../reducers/gameSlice';
+import { Condition } from "../ts/enum";
 
+interface AnswerProps {
+  item: string,
+  answer: string,
+  correct: string | undefined,
+  nextLevelId: string | undefined,
+  prize: string | undefined
+}
 
-export const Answer = (props: any) => {
-
-    const [color, setColor] = useState('');
-
-    const dispatch = useDispatch();
+export const Answer = (props: AnswerProps) => {
 
     const { item, answer, correct, nextLevelId, prize } = props;
 
+    const [condition, setCondition] = useState('');
+
+    const dispatch = useDispatch();
+
     useEffect(() => {
-      if (color === 'green') {
+      if (condition === Condition.SUCCESS) {
           setTimeout(() => {
               dispatch(nextQuestion(nextLevelId))
               dispatch(changeStatus(nextLevelId))
               dispatch(changePrize(prize))
-              setColor('')
+              setCondition('')
           }, 1000)
-      } else if (color === 'red') {
+      } else if (condition === Condition.FAIL) {
           setTimeout(() => {
               dispatch(changeStatus('finish'))
-              setColor('')
+              setCondition('')
           }, 1000)
       }
-  }, [color])
+  }, [condition])
 
     const getResult = (item: string) => {
       if(correct === item) {
-          setColor('green')
+          setCondition(Condition.SUCCESS)
       } else {
-          setColor('red')
+          setCondition(Condition.FAIL)
       }
   }
 
   const changeColor = (item: string) => {
-      setColor('orange')
+      setCondition(Condition.PENDING)
       
       setTimeout(() => getResult(item), 1000);
   }
+
+  const getColor = () => {
+    if(condition === Condition.FAIL) {
+      return 'red'
+    } else if (condition === Condition.SUCCESS) {
+      return 'green'
+    } else if (condition === Condition.PENDING){
+      return 'orange'
+    }
+   }
     
     return(
         <div>
             <span>{item}</span>
             <br />
             <button
-                style={{backgroundColor: `${color}`}}
+                style={{backgroundColor: getColor()}}
                 onClick={() => changeColor(item)}
             >
                 {answer}

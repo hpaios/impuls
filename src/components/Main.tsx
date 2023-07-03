@@ -2,15 +2,11 @@ import React from 'react';
 import { Answer } from './Answer';
 import { useAppSelector } from '../App';
 import { Prizes } from './Prizes';
-import { Question } from '../ts/interfaces';
 
-export const QuestionList = () => {
+export const Main = () => {
     
     const activeQuestion = useAppSelector(state => state.game.activeQuestion);
-    const data = useAppSelector(state => state.game.data);
-    const newData: Question[] = data!.data;
-    
-    console.log(newData);
+    const data = useAppSelector(state => state.game.data!.data);
     
     const answersToArr = Object.entries(activeQuestion!.answers);
     
@@ -27,10 +23,13 @@ export const QuestionList = () => {
 
     return(
         <>
-            <h1>QuestionList</h1>
-            {activeQuestion?.question}
-            {answersList}
-            <Prizes prize={activeQuestion?.prize} data={newData}/>
+            <h1>{activeQuestion?.question}</h1>
+            <div>
+              {answersList}
+            </div>
+            <div>
+              <Prizes prize={activeQuestion?.prize} data={data}/>
+            </div>
         </>
     )
 }
