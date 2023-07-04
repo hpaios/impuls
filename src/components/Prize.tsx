@@ -3,18 +3,21 @@ import { convertToPrise } from './../helpers/converter';
 
 interface Prize {
     active: boolean,
-    prize: string
+    prize: string,
+    isPassed: boolean
 }
 
 export const Prize = (props: Prize) => {
 
-    const { active } = props;
+    const { active, isPassed, prize } = props;
 
-    const isActive = active ? 'red' : '';
+    const isActive = active ? 'active' : '';
+
+    const passed = isPassed ? 'passed' : ''
 
     return(
         <>
-            <p style={{color: isActive}}>$ {convertToPrise(props.prize)}</p>
+            <div className={`prize-item ${isActive} ${passed}`}>$ {convertToPrise(prize)}</div>
         </>
     )
 }

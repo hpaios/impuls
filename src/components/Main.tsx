@@ -7,7 +7,7 @@ export const Main = () => {
 
   const [isShowPrizes, setIsShowPrizes] = useState(false);
   const [width, setWidth] = React.useState(window.innerWidth);
-  const breakpoint = 620;
+  const breakpoint = 868;
     
     const activeQuestion = useAppSelector(state => state.game.activeQuestion);
     const data = useAppSelector(state => state.game.data!.data);
@@ -40,20 +40,22 @@ export const Main = () => {
                 />
     })
 
+    const isOpenMenu = isShowPrizes ? 'hide' : 'open';
+
     return(
         <div className='main-content'>
-          <div className='col-1 question'>
-            <h2>{activeQuestion?.question}</h2>
+          <div className='col-1 question' style={{display: width > breakpoint || isShowPrizes ? 'flex' : 'none'}}>
+          <h2>{activeQuestion?.question}</h2>
             <div className='answers-list'>
-              {answersList}
+             {answersList} 
             </div>
           </div>
-          <div className='col-2 prizes'>
+          <div className='col-2 prizes' style={{display: width < breakpoint && isShowPrizes ? 'none' : 'flex'}}>
             <div>
-              {width < breakpoint && isShowPrizes|| <Prizes prize={activeQuestion?.prize} data={data}/>}
+              <Prizes prize={activeQuestion?.prize} data={data} />
             </div>
           </div>
-            {width > breakpoint || <button onClick={() => togglePrizes()}>ShowPrize</button>}
+            {width > breakpoint || <button onClick={() => togglePrizes()} className={`menu ${isOpenMenu}`}></button>}
         </div>
     )
 }

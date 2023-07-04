@@ -11,14 +11,15 @@ export const Prizes = (props: PrizesProps) => {
      const { prize, data } = props
      
      const prizes = data.map((item: { prize: string }) => {
-        const isActive = item.prize === prize
+        const isActive = item.prize === prize;
+        const isPassed =  +prize! > +item.prize;
 
-        return <Prize prize={item.prize} active={isActive}/>
+        return <Prize prize={item.prize} active={isActive} isPassed={isPassed}/>
      });
     
     return(
         <>
-          {prizes}
+          {prizes.reverse()}
         </>
     )
 }

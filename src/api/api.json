@@ -10,7 +10,7 @@
             },
             "answer": "c",
             "id": "level_1",
-            "nextLevelId": "finish",
+            "nextLevelId": "level_2",
             "prize": "500"
         },
         {
@@ -23,7 +23,7 @@
             },
             "answer": "c",
             "id": "level_2",
-            "nextLevelId": "level_3",
+            "nextLevelId": "finish",
             "prize": "1000"
         },
         {
