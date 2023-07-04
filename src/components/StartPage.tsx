@@ -7,7 +7,7 @@ export const StartPage = () => {
   const dispatch = useDispatch();
 
   const onStartGame = () => {
-    dispatch(startGame())
+    dispatch(startGame('start'))
   }
 
     return(

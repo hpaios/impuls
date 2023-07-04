@@ -1,17 +1,36 @@
 import { createSlice } from '@reduxjs/toolkit'
 import data from '../api/api.json'
-import { InitialState } from '../ts/interfaces'
 
+export interface Question {
+  question: string
+  answers: {
+    a: string
+    b: string
+    c: string
+    d: string
+  }
+  answer: string
+  id: string
+  nextLevelId: string
+  prize: string
+}
 
-const fetchFirstLevel = () => {
-    return data.data.find(item => item.id === 'level_1')
+export interface InitialState {
+  data: Question[] | null,
+  activeQuestion: Question | null,
+  status: string,
+  prize: string | null
 }
 
 const initialState: InitialState = {
-    data: null,
-    activeQuestion: null,
-    status: 'start',
-    prize: null
+  data: null,
+  activeQuestion: null,
+  status: 'start',
+  prize: null
+}
+
+const fetchFirstLevel = () => {
+  return data.data.find(item => item.id === 'level_1')
 }
 
 const gameSlice = createSlice({
@@ -19,18 +38,21 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         startGame: {
-            reducer(state: any) {
+          // @ts-ignore
+            reducer(state) {
               const first = fetchFirstLevel()
               const newState = {...state, data, status: 'inProgress', activeQuestion: first}
               return newState
             },
-            prepare(payload?: string) {
+            prepare(payload?: string | undefined) {
               return { payload }
             }
         },
         nextQuestion: {
-          reducer(state: any, action: any) {
-            
+          // @ts-ignore
+          reducer(state, action) {
+
+            // @ts-ignore
               const newActive = state.data.data.find((item: { id: any; }): any => item.id == action.payload)
             
               if(newActive) {
@@ -41,24 +63,24 @@ const gameSlice = createSlice({
                   return newState
               }
             },
-            prepare(payload: any) {
+            prepare(payload: string) {
               return { payload }
             }
         },
         changeStatus: {
-          reducer(state: any, action: any) {
+          reducer(state, action) {
               const status = action.payload === 'finish' ? 'finish' : 'inProgress'
               return {...state, status}
           },
-          prepare(payload: any) {
+          prepare(payload) {
             return { payload }
           },
         },
         changePrize: {
-          reducer(state: any, action: any) {
+          reducer(state, action) {
             return {...state, prize: action.payload}
           },
-          prepare(payload: any) {
+          prepare(payload) {
             return { payload }
           },
         }

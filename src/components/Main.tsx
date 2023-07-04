@@ -10,6 +10,7 @@ export const Main = () => {
   const breakpoint = 868;
     
     const activeQuestion = useAppSelector(state => state.game.activeQuestion);
+    // @ts-ignore
     const data = useAppSelector(state => state.game.data!.data);
     
     const answersToArr = Object.entries(activeQuestion!.answers);
@@ -30,14 +31,14 @@ export const Main = () => {
     }, []);
     
     const answersList = answersToArr.map((answer): any => {
-        return <Answer
-                    item={answer[0]}
-                    answer={answer[1]}
-                    key={answer[0]}
-                    correct={activeQuestion?.answer}
-                    nextLevelId={activeQuestion?.nextLevelId}
-                    prize={activeQuestion?.prize}
-                />
+      return <Answer
+                item={answer[0]}
+                answer={answer[1]}
+                key={answer[0]}
+                correct={activeQuestion?.answer}
+                nextLevelId={activeQuestion?.nextLevelId}
+                prize={activeQuestion?.prize}
+              />
     })
 
     const isOpenMenu = isShowPrizes ? 'hide' : 'open';

@@ -6,25 +6,25 @@ import { convertToPrise } from './../helpers/converter';
 
 export const FinishPage = () => {
 
-    const prize = useAppSelector(state => state.game.prize);
+  const prize = useAppSelector(state => state.game.prize);
 
-     const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-     const onStartGame = () => {
-        dispatch(startGame());
-        dispatch(changePrize(null))
-      }
+  const onStartGame = () => {
+    dispatch(startGame('start'));
+    dispatch(changePrize(null))
+  }
       
-    return(
-        <div className='content'>
-            <div className='container'>
-                <div className='split-screen bg'></div>
-                <div className='split-screen'>
-                    <span>Total score:</span>
-                    <h1>${convertToPrise(prize!)} earned</h1>
-                    <button onClick={onStartGame}>Try again</button>
-                </div>   
-            </div>
+  return(
+    <div className='content'>
+      <div className='container'>
+          <div className='split-screen bg'></div>
+          <div className='split-screen'>
+            <span>Total score:</span>
+            <h1>${convertToPrise(prize!)} earned</h1>
+            <button onClick={onStartGame}>Try again</button>
+          </div>   
       </div>
-    )
+    </div>
+  )
 }

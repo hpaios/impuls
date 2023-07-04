@@ -14,25 +14,25 @@ interface AnswerProps {
 
 export const Answer = (props: AnswerProps) => {
 
-    const { item, answer, correct, nextLevelId, prize } = props;
+  const { item, answer, correct, nextLevelId, prize } = props;
 
-    const [condition, setCondition] = useState('');
+  const [condition, setCondition] = useState('');
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-      if (condition === Condition.SUCCESS) {
-          setTimeout(() => {
-              dispatch(nextQuestion(nextLevelId))
-              dispatch(changeStatus(nextLevelId))
-              dispatch(changePrize(prize))
-              setCondition('')
-          }, 1000)
-      } else if (condition === Condition.FAIL) {
-          setTimeout(() => {
-              dispatch(changeStatus('finish'))
-              setCondition('')
-          }, 1000)
+  useEffect(() => {
+    if (condition === Condition.SUCCESS) {
+      setTimeout(() => {
+        dispatch(nextQuestion(nextLevelId))
+        dispatch(changeStatus(nextLevelId))
+        dispatch(changePrize(prize))
+        setCondition('')
+      }, 1000)
+    } else if (condition === Condition.FAIL) {
+      setTimeout(() => {
+        dispatch(changeStatus('finish'))
+        setCondition('')
+      }, 1000)
       }
   }, [condition])
 
@@ -45,9 +45,9 @@ export const Answer = (props: AnswerProps) => {
   }
 
   const changeColor = (item: string) => {
-      setCondition(Condition.PENDING)
+    setCondition(Condition.PENDING)
       
-      setTimeout(() => getResult(item), 1000);
+    setTimeout(() => getResult(item), 1000);
   }
 
   const getColor = () => {
@@ -63,11 +63,9 @@ export const Answer = (props: AnswerProps) => {
    const currentCondition = getColor()
     
     return(
-        <div className={`answer ${currentCondition}`}
-        onClick={() => changeColor(item)}
-        >
-          <span>{item}</span>
-          {answer}
-        </div>
+      <div className={`answer ${currentCondition}`} onClick={() => changeColor(item)}>
+        <span>{item}</span>
+        {answer}
+      </div>
     )
 }
