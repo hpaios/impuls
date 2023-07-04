@@ -1,0 +1,158 @@
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+  
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  
+    :after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-bottom: 100vh solid #FFF3EB; 
+      border-left: 100vw solid transparent;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+ }
+  
+  .container {
+    display: block;
+    margin: 0 20px;
+   } 
+  
+  .split-screen { 
+    flex: 1;
+  
+    &.bg {
+          background: url('./../assets/images/hand.svg') no-repeat;
+          background-size: contain;
+          background-position: center center;
+          height: 192px;
+      }
+    }
+
+.main-content {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+
+	.col-1 {
+		width: 80%;
+		height: 100vh;
+		background: $gray;
+		padding: 50px;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+}
+
+.answers-list {
+	text-align: left;
+
+	// .answer {
+	// 	background: url('./../assets/images/rectangle.svg') no-repeat;
+	// 	width: 373px;
+	// 	height: 72px;
+	// 	padding: 24px 40px;
+	// 	display: inline-block;
+	// 	box-sizing: border-box;
+	// 	line-height: 24px;
+	// 	position: relative;
+	// 	margin: 17px;
+	// 	text-align: left;
+
+	// 	&::before{
+	// 		content: '';
+	// 		width: 17px;
+	// 		height: 1px;
+	// 		background: $light-gray;
+	// 		position: absolute;
+	// 		left: -17px;
+	// 		top: 35px;
+	// 	}
+
+	// 	&::after{
+	// 		content: '';
+	// 		width: 17px;
+	// 		height: 1px;
+	// 		background: $light-gray;
+	// 		position: absolute;
+	// 		right: -17px;
+	// 		top: 35px;
+	// 	}
+
+	// 	&:hover {
+	// 		background: url('./../assets/images/rectangle_hover.svg') no-repeat;
+	// 		cursor: pointer;
+
+	// 		&::before,
+	// 		&::after {
+	// 			background: $main;
+	// 		}
+	// 	}
+
+	// 	&.correct {
+	// 		background: url('./../assets/images/rectangle_correct.svg') no-repeat;
+
+	// 		&::before,
+	// 		&::after {
+	// 			background: $correct;
+	// 		}
+	// 	}
+
+	// 	&.wrong {
+	// 		background: url('./../assets/images/rectangle_wrong.svg') no-repeat;
+
+	// 		&::before,
+	// 		&::after {
+	// 			background: $wrong;
+	// 		}
+	// 	}
+
+	// 	&.selected {
+	// 		background: url('./../assets/images/rectangle_selected.svg') no-repeat;
+
+	// 		&::before,
+	// 		&::after {
+	// 			background: $main;
+	// 		}
+	// 	}
+
+	// 	span {
+	// 		text-transform: uppercase;
+	// 		color: $main;
+	// 		display: inline-block;
+	// 		margin: 0 20px 0 0;
+	// 		font-size: 20px;
+	// 	}
+	// }
+}
+    
+    @media (min-width: 600px) {
+      .container {
+        display: flex;
+        max-width: 1248px;
+        width: 100%;
+        margin: 40px;
+      }
+  
+      .split-screen { 
+        flex: 1;
+    
+        // &.bg {
+        //     background: url('./../assets/images/hand.svg') no-repeat;
+        //     background-size: contain;
+        //     // background-position: center center;
+        // }
+      }
+    }

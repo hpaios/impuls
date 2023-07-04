@@ -16,9 +16,15 @@ export const FinishPage = () => {
       }
       
     return(
-        <>
-            <span>Total score: ${convertToPrise(prize!)} earned</span>
-            <button onClick={onStartGame}>Try again</button>
-        </>
+        <div className='content'>
+            <div className='container'>
+                <div className='split-screen bg'></div>
+                <div className='split-screen'>
+                    <span>Total score:</span>
+                    <h1>${convertToPrise(prize!)} earned</h1>
+                    <button onClick={onStartGame}>Try again</button>
+                </div>   
+            </div>
+      </div>
     )
 }

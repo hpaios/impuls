@@ -20,6 +20,5 @@ export const StartPage = () => {
             </div>   
         </div>
       </div>
-        
     )
 }

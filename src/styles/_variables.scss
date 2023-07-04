@@ -3,58 +3,7 @@
 $font: #1C1C21;
 $white: #FFF;
 $main: #FF8B37;
-
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  position: relative;
-
-  :after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-bottom: 100vh solid #FFF3EB; 
-    border-left: 100vw solid transparent;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-  }
-}
-
-.container {
-  display: block;
- } 
-
-.split-screen { 
-  flex: 1;
-
-  &.bg {
-        // max-width: 624px;
-        background: url('./../assets/images/hand.svg') no-repeat;
-        background-size: contain;
-        background-position: 0 0;
-        height: 192px;
-    }
-  }
-  
-  @media (min-width: 600px) {
-    .container {
-      display: flex;
-      max-width: 1248px;
-      width: 100%;
-    }
-
-    .split-screen { 
-      flex: 1;
-  
-      &.bg {
-          background: url('./../assets/images/hand.svg') no-repeat;
-          background-size: contain;
-          background-position: center center;
-      }
-    }
-  }
- 
+$gray: #F5F5F7;
+$light-gray: #D0D0D8;
+$correct: #47D867;
+$wrong: #EC6259;

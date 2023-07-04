@@ -9,6 +9,17 @@ button {
 		background: $main;
 		border-radius: 12px;
 		border: none;
+		transition: 500ms;
+		margin: 20px 0 0 0;
+
+		&:hover {
+			cursor: pointer;
+			background: lighten($main, 20%);
+		}
+
+		&:active {
+			background: darken($main, 20%);
+		}
 }
 
 @media (min-width: 600px) {
@@ -16,5 +27,7 @@ button {
         font-size: 20px;
         width: 296px;
         height: 64px;
+				margin: 30px 0 0 0;
+				float: left;
     }
 }

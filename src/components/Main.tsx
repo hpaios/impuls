@@ -41,16 +41,19 @@ export const Main = () => {
     })
 
     return(
-        <>
-            <h1>{activeQuestion?.question}</h1>
-            <div>
+        <div className='main-content'>
+          <div className='col-1 question'>
+            <h2>{activeQuestion?.question}</h2>
+            <div className='answers-list'>
               {answersList}
             </div>
-            <br />
-              {width > breakpoint || <button onClick={() => togglePrizes()}>ShowPrize</button>}
+          </div>
+          <div className='col-2 prizes'>
             <div>
               {width < breakpoint && isShowPrizes|| <Prizes prize={activeQuestion?.prize} data={data}/>}
             </div>
-        </>
+          </div>
+            {width > breakpoint || <button onClick={() => togglePrizes()}>ShowPrize</button>}
+        </div>
     )
 }

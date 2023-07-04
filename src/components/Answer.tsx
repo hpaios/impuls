@@ -52,24 +52,22 @@ export const Answer = (props: AnswerProps) => {
 
   const getColor = () => {
     if(condition === Condition.FAIL) {
-      return 'red'
+      return 'wrong'
     } else if (condition === Condition.SUCCESS) {
-      return 'green'
+      return 'correct'
     } else if (condition === Condition.PENDING){
-      return 'orange'
+      return 'selected'
     }
    }
+
+   const currentCondition = getColor()
     
     return(
-        <div>
-            <span>{item}</span>
-            <br />
-            <button
-                style={{backgroundColor: getColor()}}
-                onClick={() => changeColor(item)}
-            >
-                {answer}
-            </button>
+        <div className={`answer ${currentCondition}`}
+        onClick={() => changeColor(item)}
+        >
+          <span>{item}</span>
+          {answer}
         </div>
     )
 }
