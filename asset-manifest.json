@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/%7Bimpuls%7D/static/css/main.01fa1523.css",
+    "main.js": "/%7Bimpuls%7D/static/js/main.341ddd1a.js",
+    "static/media/hand.svg": "/%7Bimpuls%7D/static/media/hand.084742961099d3ae8c7e.svg",
+    "index.html": "/%7Bimpuls%7D/index.html",
+    "static/media/close.svg": "/%7Bimpuls%7D/static/media/close.67d0a39e8f2afba171e5.svg",
+    "static/media/menu.svg": "/%7Bimpuls%7D/static/media/menu.2e4db3a986ee50d80ed0.svg",
+    "static/media/rectangle_correct.svg": "/%7Bimpuls%7D/static/media/rectangle_correct.2912238777121813f7ea.svg",
+    "static/media/rectangle_selected.svg": "/%7Bimpuls%7D/static/media/rectangle_selected.7e5aaa8bcad5dc1bdd73.svg",
+    "static/media/rectangle_wrong.svg": "/%7Bimpuls%7D/static/media/rectangle_wrong.9948cae014ced84605e2.svg",
+    "static/media/rectangle_hover.svg": "/%7Bimpuls%7D/static/media/rectangle_hover.226e9422b964ffa65c88.svg",
+    "static/media/rectangle_prize.svg": "/%7Bimpuls%7D/static/media/rectangle_prize.5909fa69ca4a63d83548.svg",
+    "static/media/rectangle_prize_active.svg": "/%7Bimpuls%7D/static/media/rectangle_prize_active.60bd6ac34cb5b5e81f0d.svg",
+    "static/media/rectangle.svg": "/%7Bimpuls%7D/static/media/rectangle.e63993415be1ee9acd52.svg",
+    "main.01fa1523.css.map": "/%7Bimpuls%7D/static/css/main.01fa1523.css.map",
+    "main.341ddd1a.js.map": "/%7Bimpuls%7D/static/js/main.341ddd1a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.01fa1523.css",
+    "static/js/main.341ddd1a.js"
+  ]
+}
