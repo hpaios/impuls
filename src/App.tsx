@@ -1,28 +1,26 @@
-import React from 'react';
-import './App.scss';
-import { StartPage } from './components/StartPage';
-import { useSelector } from 'react-redux';
-import { Main } from './components/Main';
-import type { TypedUseSelectorHook } from 'react-redux'
-import { RootState } from './store/store';
-import { FinishPage } from './components/FinishPage';
+import React from 'react'
+import './App.scss'
+import { StartPage } from './components/StartPage'
+import { useSelector, type TypedUseSelectorHook } from 'react-redux'
+import { Main } from './components/Main'
+import { type RootState } from './store/store'
+import { FinishPage } from './components/FinishPage'
 
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 const App = () => {
 
-  const status = useAppSelector(state => state.game.status);
-  
+  const status = useAppSelector(state => state.game.status)
   const getComponentToShow = () => {
-    switch(status) {
+    switch (status) {
       case 'start': {
-          return <StartPage />
+        return <StartPage />
       }
       case 'inProgress': {
-          return <Main/>
+        return <Main/>
       }
       case 'finish': {
-          return <FinishPage/>
+        return <FinishPage/>
       }
     }
   }
@@ -31,7 +29,7 @@ const App = () => {
     <div className="App">
       {getComponentToShow()}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

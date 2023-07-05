@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
-
-import { useDispatch } from 'react-redux';
-import { nextQuestion, changeStatus, changePrize } from '../reducers/gameSlice';
-import { Condition } from "../ts/enum";
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { nextQuestion, changeStatus, changePrize } from '../reducers/gameSlice'
+import { Condition } from '../ts/enum'
 
 interface AnswerProps {
-  item: string,
-  answer: string,
-  correct: string | undefined,
-  nextLevelId: string | undefined,
+  item: string
+  answer: string
+  correct: string | undefined
+  nextLevelId: string | undefined
   prize: string | undefined
 }
 
 export const Answer = (props: AnswerProps) => {
 
-  const { item, answer, correct, nextLevelId, prize } = props;
+  const { item, answer, correct, nextLevelId, prize } = props
 
-  const [condition, setCondition] = useState('');
+  const [condition, setCondition] = useState('')
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (condition === Condition.SUCCESS) {
@@ -33,39 +32,37 @@ export const Answer = (props: AnswerProps) => {
         dispatch(changeStatus('finish'))
         setCondition('')
       }, 1000)
-      }
+    }
   }, [condition])
 
-    const getResult = (item: string) => {
-      if(correct === item) {
-          setCondition(Condition.SUCCESS)
-      } else {
-          setCondition(Condition.FAIL)
-      }
+  const getResult = (item: string) => {
+    if (correct === item) {
+      setCondition(Condition.SUCCESS)
+    } else {
+      setCondition(Condition.FAIL)
+    }
   }
 
   const changeColor = (item: string) => {
     setCondition(Condition.PENDING)
-      
-    setTimeout(() => getResult(item), 1000);
+    setTimeout(() => getResult(item), 1000)
   }
 
   const getColor = () => {
-    if(condition === Condition.FAIL) {
+    if (condition === Condition.FAIL) {
       return 'wrong'
     } else if (condition === Condition.SUCCESS) {
       return 'correct'
-    } else if (condition === Condition.PENDING){
+    } else if (condition === Condition.PENDING) {
       return 'selected'
     }
-   }
+  }
 
-   const currentCondition = getColor()
-    
-    return(
-      <div className={`answer ${currentCondition}`} onClick={() => changeColor(item)}>
-        <span>{item}</span>
-        {answer}
-      </div>
-    )
+  const currentCondition = getColor()
+  return (
+    <div className={`answer ${currentCondition}`} onClick={() => changeColor(item)}>
+      <span>{item}</span>
+      {answer}
+    </div>
+  )
 }

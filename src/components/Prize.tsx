@@ -1,20 +1,20 @@
-import React from 'react';
-import { convertToPrise } from './../helpers/converter';
+import React from 'react'
+import { convertToPrise } from './../helpers/converter'
 
-interface Prize {
-    active: boolean,
-    prize: string,
-    isPassed: boolean
+interface PrizeProps {
+  active: boolean
+  prize: string
+  isPassed: boolean
 }
 
-export const Prize = (props: Prize) => {
+export const Prize = (props: PrizeProps) => {
 
-    const { active, isPassed, prize } = props;
+  const { active, isPassed, prize } = props
 
-    const isActive = active ? 'active' : '';
-    const passed = isPassed ? 'passed' : ''
+  const isActive = active ? 'active' : ''
+  const passed = isPassed ? 'passed' : ''
 
-  return(
+  return (
     <>
       <div className={`prize-item ${isActive} ${passed}`}>$ {convertToPrise(prize)}</div>
     </>

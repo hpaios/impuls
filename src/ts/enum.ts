@@ -1,5 +1,5 @@
 export enum Condition {
-    SUCCESS = 'SUCCESS',
-    PENDING = 'PENDING',
-    FAIL = 'FAIL'
+  SUCCESS = 'SUCCESS',
+  PENDING = 'PENDING',
+  FAIL = 'FAIL'
 }
